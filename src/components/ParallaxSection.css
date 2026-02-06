@@ -1,0 +1,165 @@
+.parallax-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.parallax-section.left .parallax-content {
+  grid-template-areas: "text image";
+}
+
+.parallax-section.right .parallax-content {
+  grid-template-areas: "image text";
+}
+
+.text-content {
+  color: white;
+  padding: 2rem;
+}
+
+.parallax-section.left .text-content {
+  grid-area: text;
+  text-align: left;
+}
+
+.parallax-section.right .text-content {
+  grid-area: text;
+  text-align: right;
+}
+
+.text-content h2 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(to right, #fff, #ffd1dc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+
+.text-content p {
+  font-size: 1.5rem;
+  opacity: 0.9;
+  line-height: 1.8;
+}
+
+.image-content {
+  grid-area: image;
+  position: relative;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.image-placeholder {
+  width: 100%;
+  aspect-ratio: 3/4;
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.placeholder-text {
+  text-align: center;
+  color: white;
+  font-size: 1.2rem;
+  opacity: 0.6;
+  padding: 2rem;
+  line-height: 1.8;
+}
+
+.placeholder-text::first-line {
+  font-size: 3rem;
+}
+
+.floating-heart {
+  position: absolute;
+  font-size: 2rem;
+  pointer-events: none;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+.heart-1 {
+  top: -20px;
+  right: -20px;
+}
+
+.heart-2 {
+  bottom: -20px;
+  left: -20px;
+}
+
+@media (max-width: 968px) {
+  .parallax-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .parallax-section.left .parallax-content,
+  .parallax-section.right .parallax-content {
+    grid-template-areas: 
+      "image"
+      "text";
+  }
+  
+  .parallax-section.left .text-content,
+  .parallax-section.right .text-content {
+    text-align: center;
+  }
+  
+  .text-content h2 {
+    font-size: 2.5rem;
+  }
+  
+  .text-content p {
+    font-size: 1.2rem;
+  }
+  
+  .image-wrapper {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .parallax-section {
+    padding: 2rem 1rem;
+  }
+  
+  .text-content h2 {
+    font-size: 2rem;
+  }
+  
+  .text-content p {
+    font-size: 1.1rem;
+  }
+}
